@@ -12,46 +12,85 @@ import {
   FooterLinkGroup,
   Carousel,
   Card,
-  Button } from "flowbite-react";
-
+  Button, 
+  DarkThemeToggle} from "flowbite-react";
+//
 export default function Home() {
   return (
     <>
-      <Navbar fluid rounded>
+    <div className="bg-black-60">
+      <div className="container mx-auto">
+      <Navbar fluid className="bg-cyan-900">
         <NavbarBrand as={Link} href="https://flowbite-react.com">
-          <img src="/next.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
+          <img src="https://upload.wikimedia.org/wikipedia/zh/thumb/7/7d/Red_Bull.svg/1200px-Red_Bull.svg.png" className="mr-3 h-6 sm:h-9" alt="CSIE???" />
+          <span className="self-center whitespace-nowrap text-xl font-semibold text-black">Red_Bull東成西就</span>
         </NavbarBrand>
         <NavbarToggle />
         <NavbarCollapse>
-          <NavbarLink href="#" active>
-            Home
+          <NavbarLink href="#" className="text-white hover:text-yellow-50 hover:border-b">
+            <span className="
+            px-4
+            py-2
+            hover:text-yellow-500
+            hover:border-yellow-500
+            hover:border-b-2">Homee</span>
           </NavbarLink>
-          <NavbarLink as={Link} href="#">
-            About
+          <NavbarLink as={Link} href="#" className="text-white hover:border-b">
+          <span className="
+            px-4
+            py-2
+            hover:text-yellow-500
+            hover:border-yellow-500
+            hover:border-b-2">Sugardaddy</span>            
           </NavbarLink>
-          <NavbarLink href="#">Services</NavbarLink>
-          <NavbarLink href="#">Pricing</NavbarLink>
-          <NavbarLink href="#">Contact</NavbarLink>
+          <NavbarLink href="#" className="text-white hover:border-b">
+          <span className="
+            px-4
+            py-2
+            hover:text-yellow-500
+            hover:border-yellow-500
+            hover:border-b-2">Services</span>            
+          </NavbarLink>
+          <NavbarLink href="#" className="text-white hover:border-b">
+          <span className="
+            px-4
+            py-2
+            hover:text-yellow-500
+            hover:border-yellow-500
+            hover:border-b-2">Pricing</span>            
+          </NavbarLink>
+          <NavbarLink href="#" className="text-white hover:border-b">
+          <span className="
+            px-4
+            py-2
+            hover:text-yellow-500
+            hover:border-yellow-500
+            hover:border-b-2">Contact</span>
+          </NavbarLink>
         </NavbarCollapse>
+        <DarkThemeToggle></DarkThemeToggle>
       </Navbar>
-
-      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+      </div>
+    </div>  
+    
+      <div className="h-56 sm:h-64 xl:h-12 2xl:h-screen">
         <Carousel>
-          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
-          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
+          <img src="https://media.tenor.com/qS3fh2tz2rkAAAAj/creatorset-rollsafe-green-screen.gif" alt="..." />
+          <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjRpeGhnZ3FvNHgzMmpldnJqczg4MHVvNWFzc2NkNm5nOWFhencwdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TcdpZwYDPlWXC/giphy.gif" alt="..." />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-RfpVh0zCBG6SjKBklj5LAkuTIWnurEBQ-7Yhap15JQ&s" alt="..." />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAXh0o10UmU413E4fv0un_ql1FzhETD0DkTa8pjBE8mQ&s" alt="..." />
+          <img src="https://i.kym-cdn.com/entries/icons/facebook/000/047/760/dt.jpg" alt="..." />
         </Carousel>
       </div>
 
+      <div className="bg-white">
+      <div className="container mx-auto">
       <Card className="max-w-sm">
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Noteworthy technology acquisitions 2021
+          FORMULA 1!!!!!!!
         </h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">
-          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+          DU DU DU DU!!! MAX  VERSTAPPEN  !!!!!
         </p>
         <Button>
           Read more
@@ -64,9 +103,11 @@ export default function Home() {
           </svg>
         </Button>
       </Card>
+      </div>
+      </div>
 
       <Footer container>
-        <FooterCopyright href="#" by="Flowbite™" year={2022} />
+        <FooterCopyright href="#" by="Flowbite™" year={2096} />
         <FooterLinkGroup>
           <FooterLink href="#">About</FooterLink>
           <FooterLink href="#">Privacy Policy</FooterLink>
