@@ -1,6 +1,10 @@
 /**
  *  @author B11117061 DickLau <B11117061@gemail.yuntech.edu.tw>
  */
+
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { 
   Navbar,
@@ -22,6 +26,33 @@ import CustomCard from "@/app/components/Card";
 
 export default function Home() {
 
+  const [items, setItems] = useState([]);
+  const tokenUrl ='';
+  const apiUrl ='';
+  
+  useEffect(() => {
+    const getToken = async () => {
+      const client = process.env.TDX_CLIENT_ID
+      const clientSecret =process.env.TDX_CLIENT_SECRET
+
+      const tokenParams = new URLSearchParams();
+      tokenParams.append('grant_type','client_credentials');
+      tokenParams.append('client_id',clientID);
+      tokenParams.append('client_secret',clientSecret);
+
+      const tokenResponse = await fetch(tokenUrl,{
+        method:'POST',
+        headers:{
+          'content-type':'application/x-www-form-urlencoded'
+        },
+        body:tokenParams.toString()
+      });
+    };
+  },[]);
+
+
+
+/*
   const items =[
     {
       "ScenicSpotID": "C1_376490000A_000001",
@@ -845,7 +876,7 @@ export default function Home() {
       "UpdateTime": "2024-05-31T03:14:56+08:00"
     }
   ];
-
+*/
   return (
     <>
     <div className="bg-black-60">
