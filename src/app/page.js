@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Navbar,
   NavbarBrand, 
@@ -27,27 +28,15 @@ import CustomCard from "@/app/components/Card";
 export default function Home() {
 
   const [items, setItems] = useState([]);
-  const tokenUrl ='';
-  const apiUrl ='';
-  
+   
   useEffect(() => {
-    const getToken = async () => {
-      const client = process.env.TDX_CLIENT_ID
-      const clientSecret =process.env.TDX_CLIENT_SECRET
-
-      const tokenParams = new URLSearchParams();
-      tokenParams.append('grant_type','client_credentials');
-      tokenParams.append('client_id',clientID);
-      tokenParams.append('client_secret',clientSecret);
-
-      const tokenResponse = await fetch(tokenUrl,{
-        method:'POST',
-        headers:{
-          'content-type':'application/x-www-form-urlencoded'
-        },
-        body:tokenParams.toString()
-      });
-    };
+    async function fetchData(){
+      const response = await fetch('api/items');
+      const data = await response.json();
+      console.log(data);
+      setItems(data);
+    }
+    fetchData();
   },[]);
 
 
@@ -883,7 +872,7 @@ export default function Home() {
       <div className="container mx-auto">
       <Navbar fluid className="bg-cyan-900">
         <NavbarBrand as={Link} href="https://www.csie.yuntech.edu.tw/media/static/images/professors/%E5%BC%B5%E6%9C%AC%E6%9D%B0_uQmnygt.jpg">
-          <img src="https://upload.wikimedia.org/wikipedia/zh/thumb/7/7d/Red_Bull.svg/1200px-Red_Bull.svg.png" className="mr-3 h-6 sm:h-9" alt="CSIE???" />
+          <Image width={500} height={500} src="https://upload.wikimedia.org/wikipedia/zh/thumb/7/7d/Red_Bull.svg/1200px-Red_Bull.svg.png" className="mr-3 h-6 sm:h-9" alt="CSIE???" />
           <span className="self-center whitespace-nowrap text-xl font-semibold text-black">Red_Bull東成西就</span>
         </NavbarBrand>
         <NavbarToggle />
@@ -936,17 +925,17 @@ export default function Home() {
     
       <div className="h-56 sm:h-64 xl:h-80 2xl:h-screen">
         <Carousel>
-          <img src="/banner/ban-1.jpg" alt="https://pixabay.com/photos/funny-memes-memes-jokes-joke-meme-5790387/" />
-          <img src="https://media.tenor.com/qS3fh2tz2rkAAAAj/creatorset-rollsafe-green-screen.gif" alt="https://en.wikipedia.org/wiki/Roll_Safe" />
-          <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjRpeGhnZ3FvNHgzMmpldnJqczg4MHVvNWFzc2NkNm5nOWFhencwdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TcdpZwYDPlWXC/giphy.gif" alt="https://en.wikipedia.org/wiki/Ian_McKellen" />
-          <img src="/banner/Original_Doge_meme.jpg" alt="Atsuko Sato" />
-          <img src="/banner/Bad_Luck_Brian.jpg" alt="https://en.wikipedia.org/wiki/Bad_Luck_Brian#/media/File:Bad_Luck_Brian.jpg" />
+          <Image width={500}height={500} src="/banner/ban-1.jpg" alt="https://pixabay.com/photos/funny-memes-memes-jokes-joke-meme-5790387/" />
+          <Image width={500}height={500} src="https://media.tenor.com/qS3fh2tz2rkAAAAj/creatorset-rollsafe-green-screen.gif" alt="https://en.wikipedia.org/wiki/Roll_Safe" />
+          <Image width={500}height={500} src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjRpeGhnZ3FvNHgzMmpldnJqczg4MHVvNWFzc2NkNm5nOWFhencwdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TcdpZwYDPlWXC/giphy.gif" alt="https://en.wikipedia.org/wiki/Ian_McKellen" />
+          <Image width={500}height={500} src="/banner/Original_Doge_meme.jpg" alt="Atsuko Sato" />
+          <Image width={500}height={500} src="/banner/Bad_Luck_Brian.jpg" alt="https://en.wikipedia.org/wiki/Bad_Luck_Brian#/media/File:Bad_Luck_Brian.jpg" />
         </Carousel>
       </div>
 
       <div className="bg-white py-16">
         <div className="container mx-auto grid grid-cols-4 gap-4">
-          { items.map( items =>
+          {items.map( items =>
           <Card 
             className="max-w-sm"
             imgAlt={items.Picture.PictureDescription1}
@@ -975,8 +964,8 @@ export default function Home() {
 
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {items.map( item =>
-            <CustomCard item ={item}/>
+          {items.map( (item,index) =>
+            <CustomCard item ={item} key ={index}/>
           )}
         </div>
       </div>
