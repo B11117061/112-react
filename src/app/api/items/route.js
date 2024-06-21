@@ -43,7 +43,7 @@ async function getToken() {
 }
 
 async function fetchData(token){
-    const apiUrl = 'https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/YunlinCounty';
+    const apiUrl = "https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/YunlinCounty";
 
     try{
         const response = await fetch(apiUrl,{
